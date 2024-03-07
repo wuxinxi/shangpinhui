@@ -26,13 +26,13 @@
         <!--头部第二行 搜索区域-->
         <div class="bottom">
             <h1 class="logoArea">
-                <a class="logo" title="尚品汇" href="###" target="_blank">
+                <router-link class="logo" replace to="/home">
                     <img src="./images/logo.png" alt="">
-                </a>
+                </router-link>
             </h1>
             <div class="searchArea">
                 <form action="###" class="searchForm">
-                    <input type="text" id="autocomplete" class="input-error input-xxlarge" v-model="searchValue" />
+                    <input type="text" id="autocomplete" class="input-error input-xxlarge" v-model="keyword" />
                     <button class="sui-btn btn-xlarge btn-danger" type="button" @click="toSearch">搜索</button>
                 </form>
             </div>
@@ -46,15 +46,16 @@ export default {
     name: 'TopView',
     data() {
         return {
-            searchValue: ''
+            keyword: ''
         }
     },
     methods: {
         toSearch() {
             this.$router.push({
-                path: '/search',
+                name: 'search',
+                params:{'keyword':this.keyword},
                 query: {
-                    'value': this.searchValue
+                    'keyword': this.keyword
                 }
             })
         }
@@ -63,7 +64,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 .header {
     &>.top {
         background-color: #eaeaea;

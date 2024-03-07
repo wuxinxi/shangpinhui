@@ -6,19 +6,32 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/home',
-        component: () => import('@/pages/home/Home.vue')
+        component: () => import('@/pages/home/Home.vue'),
+        meta: {
+            showFooter: true
+        }
     },
     {
         path: '/login',
-        component: () => import('@/pages/login/Login.vue')
+        component: () => import('@/pages/login/Login.vue'),
+        meta: {
+            showFooter: false
+        }
     },
     {
         path: '/register',
-        component: () => import('@/pages/register/Register.vue')
+        component: () => import('@/pages/register/Register.vue'),
+        meta: {
+            showFooter: false
+        }
     },
     {
         path: '/search',
-        component: () => import('@/pages/search/Search.vue')
+        name: 'search',
+        component: () => import('@/pages/search/Search.vue'),
+        meta: {
+            showFooter: true
+        }
     },
     {
         path: '/',

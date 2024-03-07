@@ -2,7 +2,7 @@
   <div id="app">
     <TopView />
     <router-view></router-view>
-    <BottomView />
+    <BottomView v-show="$route.meta.showFooter"/>
   </div>
 </template>
 
